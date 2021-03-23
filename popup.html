@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="pure-min.css">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <div id="stages">
+      <div id="stage-loading">
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+            <h3>Loading...</h3>
+            <p>Typically only takes a second</p>
+            <hr />
+          </div>
+        </div>
+      </div>
+      <div id="stage-0" style="display:none;">
+        <form class="pure-form pure-form-stacked">
+          <fieldset>
+            <legend>Request sender</legend>
+            <label for="stacked-urls">URLs</label>
+            <textarea type="email" id="stacked-urls" class="full-ta"></textarea>
+            <span class="pure-form-message">
+              Make sure to check results in this tab (you may close the popup but do not navigate away).
+            </span>
+            <button type="button" class="pure-button pure-button-primary" id="execute-btn">Execute</button>
+          </fieldset>
+        </form>
+      </div>
+      <div id="stage-1" style="display:none;">
+        <h3>Working on requests..</h3>
+        <p>Progress: <span id='done'>N/A</span> of <span id='total'>N/A</span></p>
+      </div>
+      <div id="stage-2" style="display:none;">
+        <form class="pure-form pure-form-stacked" style="width:100%;max-width:100%">
+            <legend>Completed</legend>
+            <label>Please choose a download format</label>
+            <label for="fmt-json" class="pure-radio">
+                <input type="radio" id="fmt-json" checked="" name="fmt" /> JSON format</label>
+            <label for="fmt-csv" class="pure-radio">
+                <input type="radio" id="fmt-csv" name="fmt" /> CSV format</label>
+            <label for="fmt-txt" class="pure-radio">
+                <input type="radio" id="fmt-txt" name="fmt" /> Custom text format</label>
+
+            <button type="button" class="pure-button pure-button-primary" id="download-btn">Download</button>
+        </form>
+      </div>
+      <div id="stage-error" style="display:none;">
+        <h3>Error occurred!</h3>
+        <p>
+          This usually happens for one of the following reasons:
+          <ul>
+            <li>You did not log in on the AhRefs site</li>
+            <li>You did not provide a protocol for the URLs</li>
+            <li>One of your inputs was faulty</li>
+          </ul>
+
+          <br/>
+          <h4>Detailed error message:</h4>
+          <p id='det-err'></p>
+        </p>
+      </div>
+      <div id="stage-page" style="display:none;">
+        <h3>Site is not ahrefs</h3>
+        <p>You aren't located on a page that is able to execute ahrefs requests</p>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
