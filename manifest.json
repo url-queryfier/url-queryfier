@@ -3,6 +3,10 @@
   "description": "Build an Extension!",
   "version": "1.0",
   "manifest_version": 3,
+  "icons": {
+    "48": "icon/logo48.png",
+    "128": "icon/logo128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://ahrefs.com/*"],
